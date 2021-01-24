@@ -1,0 +1,16 @@
+<h2>社員一覧</h2>
+<div>
+  <label>社員名:
+    <input type="text" #memberName>
+  </label>
+  <button (click)="add(memberName.value); memberName.value = ''">追加</button>
+</div>
+<ul class="members">
+  <li *ngFor="let member of members">
+    <a routerLink="/detail/{{ member.id }}">
+      <span class="badge">{{ member.id }}</span> {{ member.name }}
+    </a>
+    <button class="delete" title="社員の削除" (click)="delete(member)">x</button>
+  </li>
+</ul>
+
